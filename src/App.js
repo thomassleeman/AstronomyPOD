@@ -60,7 +60,6 @@ export default function App() {
         <main>
           <Loading />
         </main>
-        <Footer />
       </>
     );
   } else if (nasaJson.media_type === "image") {
