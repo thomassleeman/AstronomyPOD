@@ -1,0 +1,173 @@
+:root {
+  --grey: rgb(31, 31, 31);
+  --blue: rgb(64, 70, 155);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  background: rgb(31, 31, 31);
+}
+
+h3 {
+  color: #ffff;
+  margin: 2px 15px;
+  letter-spacing: 5px;
+  background: var(--grey);
+  font-weight: 100;
+  padding: 20px 0;
+}
+
+h5 {
+  color: #ffff;
+  text-align: center;
+  font-weight: 100;
+}
+
+nav {
+  background: var(--grey);
+  color: #ffff;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  padding: 0.25rem 1rem;
+  font-weight: 400;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  padding: 50px 25px;
+}
+
+.image {
+  max-height: 100vh;
+  max-width: 90vw;
+  margin: 3vh auto;
+  padding-top: 2rem;
+}
+
+p {
+  color: #ffff;
+  font-size: 1.2rem;
+  font-weight: 100;
+  letter-spacing: 0.75px;
+  padding: 12px 15px 100px 12px;
+  width: clamp(60px, 90vw, 1100px);
+  text-align: justify;
+  line-height: 1.8rem;
+}
+
+small {
+  color: #ffff;
+  font-size: 1.2rem;
+  font-weight: 100;
+  letter-spacing: 5px;
+  padding: 10px;
+}
+
+.prev,
+.next {
+  background: rgb(255, 255, 255, 0.125);
+  color: rgb(255, 255, 255);
+  display: grid;
+  place-items: center;
+  border-color: transparent;
+  font-size: 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  margin: 0.25rem;
+  animation: 
+}
+.prev:hover,
+.next:hover {
+  background: rgb(45, 45, 182);
+}
+
+.read-more {
+  margin: 1rem;
+  background: rgb(64, 70, 155);
+  color: #ffff;
+  border: none;
+  border-radius: 6px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+.read-more:hover {
+  background: rgb(45, 45, 182);
+}
+
+/*Scroll effect*/
+@media screen and (max-width: 620px) {
+  .scroll {
+    height: 50px;
+    width: 75vw;
+    overflow: hidden;
+    position: relative;
+  }
+  .scroll h2 {
+    position: absolute;
+    /* width: 100%; */
+    height: 100%;
+    margin: 0;
+    /* overflow: hidden; */
+    white-space: nowrap;
+    /* line-height: 50px; */
+    /* text-align: center; */
+    /* Starting position */
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: scroll-left 13s linear infinite;
+    -webkit-animation: scroll-left 13s linear infinite;
+    animation: scroll-left 13s linear infinite;
+  }
+  /* Move it (define the animation) */
+  @-moz-keyframes scroll-left {
+    0% {
+      -moz-transform: translateX(100%);
+    }
+    100% {
+      -moz-transform: translateX(-100%);
+    }
+  }
+  @-webkit-keyframes scroll-left {
+    0% {
+      -webkit-transform: translateX(100%);
+    }
+    100% {
+      -webkit-transform: translateX(-100%);
+    }
+  }
+  @keyframes scroll-left {
+    0% {
+      -moz-transform: translateX(100%); /* Browser bug fix */
+      -webkit-transform: translateX(100%); /* Browser bug fix */
+      transform: translateX(100%);
+    }
+    100% {
+      -moz-transform: translateX(-100%); /* Browser bug fix */
+      -webkit-transform: translateX(-100%); /* Browser bug fix */
+      transform: translateX(-100%);
+    }
+  }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
