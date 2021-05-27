@@ -14,7 +14,7 @@ const Image = ({ url, explanation, title }) => {
         onClick={() => fullScreen()}
       />
       <p>
-        {readMore ? `${explanation.slice(0, 100)}...` : explanation}
+        {readMore ? `${explanation.slice(0, 120)}...` : explanation}
         <button onClick={() => setReadMore(!readMore)} className="read-more">
           {readMore ? "READ MORE" : "SEE LESS"}
         </button>
