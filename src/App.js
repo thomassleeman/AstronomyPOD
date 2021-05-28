@@ -7,6 +7,7 @@ import Image from "./Image";
 import Video from "./Video";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import NoImage from "./NoImage";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -80,6 +81,15 @@ export default function App() {
           <Video {...nasaJson} />
         </main>
         <Footer />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Nav {...nasaJson} date={date} dateDec={dateDec} dateInc={dateInc} />
+        <main>
+          <NoImage />
+        </main>
       </>
     );
   }
