@@ -5,10 +5,7 @@ const NoImage = () => {
   return (
     <article>
       <div className="App">
-        <h3 classname="loading">
-          That's as far forwards as we can go. You'll have to wait for more
-          images and videos!
-        </h3>
+        <h3 classname="loading">There's no image for that date yet!</h3>
       </div>
     </article>
   );
