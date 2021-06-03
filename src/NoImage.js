@@ -5,7 +5,10 @@ const NoImage = () => {
   return (
     <article>
       <div className="App">
-        <h3 classname="loading">There's no image for that date yet!</h3>
+        <h3 classname="loading">
+          Space is taking a day off... There's no image for that date at the
+          moment.
+        </h3>
       </div>
     </article>
   );
