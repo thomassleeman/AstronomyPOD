@@ -7,17 +7,16 @@ import Image from "./Image";
 import Video from "./Video";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import ImageFS from "./ImageFS";
 import NoImage from "./NoImage";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [nasaJson, setNasaJson] = useState();
+  const [fs, setFs] = useState(false);
 
   const todaysDate = new Date();
   const [date, setDate] = useState(todaysDate);
-  console.log(typeof date, date.getTime(), date, date.getDate());
-  // let brokenDate = date.setDate(date.getDate() - 1);
-  // console.log("brokenDate: ", brokenDate, new Date(brokenDate));
   let year = date.getFullYear();
   let month = date.getMonth();
   let day = date.getDate();
@@ -30,7 +29,6 @@ export default function App() {
       setLoading(true);
       const response = await fetch(url);
       const responseJson = await response.json();
-      console.log(responseJson);
       setNasaJson(responseJson);
       setLoading(false);
     } catch (err) {
@@ -54,7 +52,15 @@ export default function App() {
     setDate(tomorrowObj);
   };
 
-  if (loading) {
+  const fullScreen = () => {
+    setFs(true);
+  };
+
+  const closeFs = () => {
+    setFs(false);
+  };
+
+  if (loading && fs === false) {
     return (
       <>
         <Nav date={date} dateDec={dateDec} dateInc={dateInc} />
@@ -63,17 +69,17 @@ export default function App() {
         </main>
       </>
     );
-  } else if (nasaJson.media_type === "image") {
+  } else if (nasaJson.media_type === "image" && fs === false) {
     return (
       <>
         <Nav {...nasaJson} date={date} dateDec={dateDec} dateInc={dateInc} />
         <main>
-          <Image {...nasaJson} />
+          <Image {...nasaJson} fullScreen={fullScreen} />
         </main>
         <Footer />
       </>
     );
-  } else if (nasaJson.media_type === "video") {
+  } else if (nasaJson.media_type === "video" && fs === false) {
     return (
       <>
         <Nav {...nasaJson} date={date} dateDec={dateDec} dateInc={dateInc} />
@@ -83,13 +89,24 @@ export default function App() {
         <Footer />
       </>
     );
-  } else {
+  } else if (
+    !loading &&
+    nasaJson.media_type != "image" &&
+    nasaJson.media_type != "video" &&
+    fs === false
+  ) {
     return (
       <>
         <Nav {...nasaJson} date={date} dateDec={dateDec} dateInc={dateInc} />
         <main>
           <NoImage />
         </main>
+      </>
+    );
+  } else if (fs === true) {
+    return (
+      <>
+        <ImageFS {...nasaJson} closeFs={closeFs} />
       </>
     );
   }

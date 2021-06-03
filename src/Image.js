@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 
-const Image = ({ url, explanation, title }) => {
+const Image = ({ url, explanation, title, fullScreen }) => {
   const [readMore, setReadMore] = useState(true);
-  const fullscreen = () => {};
 
   return (
     <article>
