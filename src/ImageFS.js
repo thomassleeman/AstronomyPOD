@@ -6,9 +6,11 @@ import "./styles.css";
 const ImageFS = ({ url, title, closeFs }) => {
   return (
     <>
-      <button className="fiX" onClick={() => closeFs()}>
-        <FiX />
-      </button>
+      <nav>
+        <button className="fiX" onClick={() => closeFs()}>
+          <FiX />
+        </button>
+      </nav>
       <article>
         <img className="imageFs" src={url} alt={title} />
       </article>
